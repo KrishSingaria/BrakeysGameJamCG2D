@@ -7,11 +7,11 @@ public class Anxiety_Meter : MonoBehaviour
     // Start is called before the first frame update
     public GameObject player;
     public Camera cam;
-    private float anxiety;
+    PlayerScript playerScript;
     public float anxiety_dist = 5;
     void Start()
     {
-        
+        playerScript = player.GetComponent<PlayerScript>();
     }
 
     // Update is called once per frame
@@ -25,15 +25,14 @@ public class Anxiety_Meter : MonoBehaviour
             print(hit.collider.name);
             if (hit.collider.name == "FirstPersonController" && dist < anxiety_dist && IsInView(cam))
             {
-                anxiety += 1;
+                playerScript.anxiety += 1;
             }
-            else if (anxiety > 0)
+            else if (playerScript.anxiety > 0)
             {
-                anxiety -= 1;
+                playerScript.anxiety -= 1;
             }
         }
-        print(anxiety);
-        Debug.Log(anxiety);
+        Debug.Log(playerScript.anxiety);
     }
     bool IsInView(Camera cam)
     {

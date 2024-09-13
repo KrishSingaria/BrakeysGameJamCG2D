@@ -513,7 +513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1443361130}
   cam: {fileID: 8765489994903951807}
-  anxiety_dist: 5
+  anxiety_dist: 25
 --- !u!43 &69712704
 Mesh:
   m_ObjectHideFlags: 0
@@ -3834,6 +3834,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
   m_PrefabInstance: {fileID: 8765489994903951804}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1443361137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443361130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ebc045f77fef54fb44c202ebedb4cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anxiety: 0
+  Max_anxiety: 100
 --- !u!1 &1483835289
 GameObject:
   m_ObjectHideFlags: 0
@@ -5400,6 +5414,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1443361137}
     - targetCorrespondingSourceObject: {fileID: 4459864851310106424, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8765489994903951806}
