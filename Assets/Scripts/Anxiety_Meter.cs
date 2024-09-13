@@ -33,6 +33,7 @@ public class Anxiety_Meter : MonoBehaviour
             }
         }
         print(anxiety);
+        Debug.Log(anxiety);
     }
     bool IsInView(Camera cam)
     {
