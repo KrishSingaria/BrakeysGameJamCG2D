@@ -16,16 +16,18 @@ public class InventryManagement : MonoBehaviour
 
     public GameObject InventryUI;
     public GameObject CrossHair;
+    public GameObject PressEtoPickup;
 
     public TextMeshProUGUI itemText;
     public TextMeshProUGUI SelectionText;
     private Button selectionTextParent;
     public Image itemImage;
     public GameObject currItem;
-
+    public float maxItemPickupDistance = 4f;
     private int itemIndex;
     private int maxitems;
     private int equipedIndex;
+
 
     private void Awake()
     {
@@ -34,7 +36,7 @@ public class InventryManagement : MonoBehaviour
     }
     private void Start()
     {
-        //PlayerPrefs.SetInt("Item", 0);
+        PlayerPrefs.SetInt("Item", 0);
         selectionTextParent = SelectionText.transform.parent.GetComponent<Button>();
         maxitems = items.Count;
         equipedIndex = 0;
@@ -43,6 +45,22 @@ public class InventryManagement : MonoBehaviour
     }
     public void Update()
     {
+        Vector3 rayOrigin = Camera.main.ViewportToWorldPoint(new Vector3(.5f, .5f, 0));
+        if (Physics.Raycast(rayOrigin, Camera.main.transform.forward, out RaycastHit hit, maxItemPickupDistance))
+        {
+            if (hit.collider.gameObject.CompareTag("pickable"))
+            {
+                PressEtoPickup.SetActive(InventryUI.activeSelf ? false: true);
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    PickupableItem itemScript = hit.collider.gameObject.transform.GetComponent<PickupableItem>();
+                    AddItemInInventry(itemScript.item);
+                    Destroy(hit.collider.gameObject);
+                    PressEtoPickup.SetActive(false);
+                }
+            }
+        }
+        else PressEtoPickup.SetActive(false);
         if (Input.GetKeyDown(KeyCode.I))
         {
             InventryUI.SetActive(!InventryUI.activeSelf);
@@ -128,7 +146,12 @@ public class InventryManagement : MonoBehaviour
         selectionTextParent.interactable = false;
         Equip(items[itemIndex].item);
     }
-    
+    public void AddItemInInventry(Item item)
+    {
+        item.isEquipped = false;
+        items.Add(item);
+        maxitems = items.Count;
+    }
     void Equip(GameObject itemSpawned)
     {
         if (itemSpawned != null) 
@@ -144,6 +167,8 @@ public class InventryManagement : MonoBehaviour
 
             Rigidbody body = item.GetComponent<Rigidbody>();
             body.isKinematic = true;
+            PickupableItem pickupableItem = item.GetComponent<PickupableItem>();
+            pickupableItem.enabled = false;
             BoxCollider collider = item.GetComponent<BoxCollider>();
             collider.enabled = false;
         }
@@ -154,12 +179,6 @@ public class InventryManagement : MonoBehaviour
             Destroy(currItem);
         }
     }
-    public void AddItemInInventry(Item item)
-    {
-        item.isEquipped = false;
-        items.Add(item);
-        maxitems = items.Count;
-    }
     void Drop(GameObject item)
     {
         Transform transform = item.GetComponent<Transform>();
@@ -167,6 +186,8 @@ public class InventryManagement : MonoBehaviour
 
         Rigidbody body = item.GetComponent<Rigidbody>();
         body.isKinematic = false;
+        PickupableItem pickupableItem = item.GetComponent<PickupableItem>();
+        pickupableItem.enabled = false;
         BoxCollider collider = item.GetComponent<BoxCollider>();
         collider.enabled = true;
         body.velocity = player.GetComponent<Rigidbody>().velocity;

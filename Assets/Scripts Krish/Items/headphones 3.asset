@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: headphones 3
   m_EditorClassIdentifier: 
   Name: Blue
-  Sprite: {fileID: 21300000, guid: f699ba660773e3a43833ce1ac2b41815, type: 3}
+  Sprite: {fileID: 21300000, guid: b031381c39ea44847ae8dd8ef2e8c567, type: 3}
   item: {fileID: 5376501365940028708, guid: cb35960f96cedb04c881c504f7aa545e, type: 3}
   isEquipped: 0
   index: 1
