@@ -36,6 +36,7 @@ public class InventryManagement : MonoBehaviour
     }
     private void Start()
     {
+        DontDestroyOnLoad(gameObject);
         PlayerPrefs.SetInt("Item", 0);
         selectionTextParent = SelectionText.transform.parent.GetComponent<Button>();
         maxitems = items.Count;

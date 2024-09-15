@@ -9,6 +9,8 @@ public class Anxiety_Meter : MonoBehaviour
     public Camera cam;
     private float anxiety;
     public float anxiety_dist = 5;
+    public float anxiety_increaseing_rate = 1f;
+    public float anxiety_decreaseing_rate = 0.1f;
     void Start()
     {
         
@@ -25,11 +27,11 @@ public class Anxiety_Meter : MonoBehaviour
             print(hit.collider.name);
             if (hit.collider.name == "FirstPersonController" && dist < anxiety_dist && IsInView(cam))
             {
-                anxiety += 1;
+                anxiety += anxiety_increaseing_rate;
             }
             else if (anxiety > 0)
             {
-                anxiety -= 1;
+                anxiety -= anxiety_decreaseing_rate;
             }
         }
         print(anxiety);
