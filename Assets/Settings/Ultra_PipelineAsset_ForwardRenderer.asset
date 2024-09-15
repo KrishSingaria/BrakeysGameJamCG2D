@@ -1,6 +1,10 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<< HEAD
 --- !u!114 &-5611474035334183835
+=======
+--- !u!114 &-2440656339482138454
+>>>>>>> shashi
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -16,6 +20,7 @@ MonoBehaviour:
   injectionPoint: 600
   fetchColorBuffer: 1
   requirements: 6
+<<<<<<< HEAD
   passMaterial: {fileID: 2100000, guid: 789404f07cbf76749b7097a56785b62c, type: 2}
   passIndex: 0
   bindDepthStencilAttachment: 0
@@ -36,6 +41,8 @@ MonoBehaviour:
   injectionPoint: 600
   fetchColorBuffer: 1
   requirements: 3
+=======
+>>>>>>> shashi
   passMaterial: {fileID: 2100000, guid: ced36aac496096c4a84214aa7deb585b, type: 2}
   passIndex: 0
   bindDepthStencilAttachment: 0
@@ -56,9 +63,15 @@ MonoBehaviour:
     debugReplacementPS: {fileID: 4800000, guid: cf852408f2e174538bcd9b7fda1c5ae7, type: 3}
     hdrDebugViewPS: {fileID: 4800000, guid: 573620ae32aec764abd4d728906d2587, type: 3}
   m_RendererFeatures:
+<<<<<<< HEAD
   - {fileID: -5611474035334183835}
   - {fileID: -2894110942557106153}
   m_RendererFeatureMap: 65049481180a20b2171050706e0dd6d7
+=======
+  - {fileID: 8064985754948367678}
+  - {fileID: -2440656339482138454}
+  m_RendererFeatureMap: 3e754862d095ec6faaa85c8afd0b21de
+>>>>>>> shashi
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -97,3 +110,26 @@ MonoBehaviour:
   m_CopyDepthMode: 1
   m_AccurateGbufferNormals: 0
   m_IntermediateTextureMode: 1
+<<<<<<< HEAD
+=======
+--- !u!114 &8064985754948367678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d613f08f173d4dd895bb07b3230baa9, type: 3}
+  m_Name: FullScreenPassRendererFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  injectionPoint: 600
+  fetchColorBuffer: 1
+  requirements: 0
+  passMaterial: {fileID: 2100000, guid: 789404f07cbf76749b7097a56785b62c, type: 2}
+  passIndex: 0
+  bindDepthStencilAttachment: 0
+  m_Version: 1
+>>>>>>> shashi
